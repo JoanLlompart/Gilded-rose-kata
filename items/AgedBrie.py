@@ -13,3 +13,13 @@ class AgedBrie(NormalItem):
             qualityModifier *= 2
         self.quality += qualityModifier
 
+if __name__ == '__main__':
+    name = agedBrie[0][0]
+    sellIn = agedBrie[0][1]
+    quality = agedBrie[0][2]
+    item = AgedBrie(name, sellIn, quality)
+
+    for day in agedBrie:
+        assert day == [item.name, item. sell_in, item.quality]
+        print(str(day) + " == " + str([item.name, item. sell_in, item.quality]))
+        item.updateQuality()
