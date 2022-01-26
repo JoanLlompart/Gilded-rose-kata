@@ -13,4 +13,14 @@ class NormalItem(Item):
         qualityModifier = -1
         if self.sell_in < 0:
             qualityModifier *= 2
-        self.quality += qualityModifier 
+        self.quality += qualityModifier
+    
+    def checkQuality(self):
+        if self.quality <= 0: self.quality = 0
+        if self.quality >= 50: self.quality = 50
+    
+    def updateQuality(self):
+        self.reduceSellIn()
+        self.changeQuality()
+        self.checkQualityInRange()
+    
